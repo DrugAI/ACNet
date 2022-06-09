@@ -2,7 +2,7 @@
 
 <center>
   Ziqiao Zhang<sup>1</sup>, Bangyi Zhao<sup>1</sup>, Ailin Xie<sup>1</sup>,  Yatao Bian<sup>2</sup>, Shuigeng Zhou<sup>1</sup>
-  
+  <br>
 <sup>1</sup>School of computer science, Fudan University <br>
 <sup>2</sup>Tencent AI Lab <br>
 <br>
@@ -22,7 +22,6 @@ Our work is the first contribution of large-scale benchmark for the AC predictio
 
 
 
-
 ### Paper
 
 - XXX
@@ -31,5 +30,5 @@ Our work is the first contribution of large-scale benchmark for the AC predictio
 ### Code & Data
 
 - Code: <xxx>
-  
+
 - Data: https://drive.google.com/drive/folders/1JogBAg9AI0pUxY44w9_g8RHboLf7V5q7?usp=sharing
