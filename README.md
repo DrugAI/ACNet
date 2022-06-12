@@ -12,3 +12,16 @@ Introduction of this project: https://drugai.github.io/ACNet/
 - 
 - rdkit = 2020.09.5
 - 
+
+
+## Usage
+### Download data files
+
+
+
+
+## Illustration
+
+### Data structure
+The data sturcture in the ACNet benchmark is as following:
+{'SMILES1':}
