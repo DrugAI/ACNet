@@ -21,13 +21,35 @@ To recover the environmen:
 
 `conda create -f  ACNetEnviron.yml`
 
-## Usage
+## Usage 
 ### Download data files
+Download data files from URL:  https://drive.google.com/drive/folders/1JogBAg9AI0pUxY44w9_g8RHboLf7V5q7?usp=sharing
+
+Run the following command to put the data files into the directories
+
+```
+mkdir ./ACComponents/ACDataset/data_files/raw_data
+mkdir ./ACComponents/ACDataset/data_files/generated_datasets
+mv all_smiles_target.csv ./ACComponents/ACDataset/data_files/raw_data/
+mv mmp_ac_s_distinct.csv ./ACComponents/ACDataset/data_files/raw_data/
+mv mmp_ac_s_neg_distinct.csv ./ACComponents/ACDataset/data_files/raw_data/
+```
+
+### Generate ACNet datasets
+
+Run the following command to generate ACNet datasets with *Default Configuration*
+
+```
+python ./ACComponents/ACDataset/GenerateACDatasets.py
+```
+
+The configuration can be customized in *./ACComponents/ACDataset/DataUtils.py*
 
 
 
 
 ## Illustration
+### Data files
 
 ### Data structure
 The data sturcture in the ACNet benchmark is as following:
