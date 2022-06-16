@@ -25,7 +25,7 @@ git clone https://github.com/DrugAI/ACNet.git
 cd ACNet/ACNet
 ```
 
-**Note**: The root path `./` indicates `ACNet/` in the following part.
+**Note**: The current path `./` indicates `ACNet/` in the following part.
 
 ### Create conda environment
 Run the following command to create the environment.
