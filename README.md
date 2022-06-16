@@ -73,7 +73,7 @@ To reproduce the results, execute the following steps.
 
 
 
-- Create the directories for model checkpoints.
+1. Create the directories for model checkpoints.
 
 ```
 mkdir ./TestExp
@@ -84,7 +84,7 @@ mkdir ./TestExp/Few
 mkdir ./TestExp/Mix
 ```
 
-- Run the scripts in `./`
+2. Run the scripts in `./`
 
 For instance, to run the ECFP+MLP on Large subset:
 
@@ -100,14 +100,14 @@ mkdir ./TestExp/Small/GRU
 python ./GRUSmall.py
 ```
 
-- Run the following command before experiments of Graphormer model
+3. Run the following command before experiments of Graphormer model
 
 ```
 cd ./Models/Graphormer
 python setup.py build_ext --inplace
 ```
 
-- Molecular representations extracted by PTMs
+4. Molecular representations extracted by PTMs
 
 Representations extracted by 7 PTMs for the Few subset can be downloaded [here](https://drive.google.com/drive/folders/1JogBAg9AI0pUxY44w9_g8RHboLf7V5q7?usp=sharing)
 
