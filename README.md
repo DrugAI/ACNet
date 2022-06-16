@@ -22,6 +22,14 @@ To recover the environment:
 `conda create -f ./ACNetEnviron.yml`
 
 ## Usage 
+### Clone the repository
+Run the following command to clone the repository to your device.
+
+```
+git clone https://github.com/DrugAI/ACNet.git
+cd ACNet/ACNet
+```
+
 ### Download data files
 Download data files from [here](https://drive.google.com/drive/folders/1JogBAg9AI0pUxY44w9_g8RHboLf7V5q7?usp=sharing)
 
