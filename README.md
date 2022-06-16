@@ -46,6 +46,22 @@ python ./ACComponents/ACDataset/GenerateACDatasets.py
 The configuration can be customized in *./ACComponents/ACDataset/DataUtils.py*
 
 
+```
+class Config(object):
+    def __init__(self):
+        super(Config, self).__init__()
+        self.mixed = True                       # Whether to generate the Mix dataset, default True
+        self.random_sample_negative = False     # Whether to use randomly sample the negative samples toward certain target, default False.
+        self.random_sample_negative_seed = 8    # Random seed for sample negative samples if self.random_saple_negative == True.
+        self.discard_extreme_imbalance = False  # Whether to discard the subsets that are extremely imbalanced, default False.
+        self.pn_rate_threshold = 0.2            # The threshold of Pos/Neg for extremely imbalanced subsets if self.discard_extreme_imbalance == True.
+        self.discard_few_pos = True             # Discard the subsets that have only few positive samples. Default True.
+        self.few_pos_threshold = 10             # The threshold to identify few positive, deault 10.
+        self.large_thres = 20000                # Thresholds for grouping tasks into subsets.
+        self.medium_thres = 1000
+        self.small_thres = 100
+```
+
 
 
 ## Illustration
