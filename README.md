@@ -23,7 +23,7 @@ To recover the environment:
 
 ## Usage 
 ### Download data files
-Download data files from URL:  https://drive.google.com/drive/folders/1JogBAg9AI0pUxY44w9_g8RHboLf7V5q7?usp=sharing
+Download data files from [here](https://drive.google.com/drive/folders/1JogBAg9AI0pUxY44w9_g8RHboLf7V5q7?usp=sharing)
 
 Run the following command to put the data files into the directories
 
@@ -38,7 +38,7 @@ mv mmp_ac_s_neg_distinct.csv ./ACComponents/ACDataset/data_files/raw_data/
 
 ### Generate ACNet datasets
 
-Run the following command to generate ACNet datasets with *Default Configuration*
+Run the following command to generate ACNet datasets with **Default Configuration**
 
 ```
 python ./ACComponents/ACDataset/GenerateACDatasets.py
@@ -67,7 +67,44 @@ class Config(object):
 
 ### Reproducing
 
-To reproduce the baseline experiments of ACNet reported 
+Our experimental results are obtained on RTX 3090 GPU, E5-2667 CPU, 256GB memory, and Ubuntu 18.04.5.
+
+To reproduce the results, execute the following steps.
+
+
+
+- Create the directories for model checkpoints.
+
+```
+mkdir ./TestExp
+mkdir ./TestExp/Large
+mkdir ./TestExp/Medium
+mkdir ./TestExp/Small
+mkdir ./TestExp/Few
+mkdir ./TestExp/Mix
+```
+
+- Run the scripts in `./`
+
+For instance, to run the ECFP+MLP on Large subset:
+
+```
+mkdir ./TestExp/Large/FPMLP
+python ./FPMLPLarge.py
+```
+
+**Note**:
+The GNNs (GCN, GIN, SGC) in the baseline experiments are implemented by PyG package, which uses `torch.scatter_` function.
+Remember that the `torch.scatter_` function is not reproducible (See [here](https://pytorch.org/docs/stable/generated/torch.Tensor.scatter_.html#torch.Tensor.scatter_) ), so the results of the GNNs may be slightly different with our reported results in the manuscript.
+
+
+**Note**:
+The baseline experiments of ACNet are conducted by *self-made* training framework.
+It is not as well-constructed as other training frameworks, e.g. *torchdrug*.
+It is just served as an example to show how our benchmark works and to show the reproducibility of our results reported in the manuscript.
+We can only guarantee that the experimental scripts can work to reproduce the results, but the stability of the training framework is not guaranteed and the illustration of this training framework is not our point.
+
+
 
 
 ## Illustration
@@ -77,12 +114,3 @@ To reproduce the baseline experiments of ACNet reported
 The data sturcture in the ACNet benchmark is as following:
 {'SMILES1':}
 
-
-## Reproduce
-
-The baseline experiments of ACNet are conducted by *self-made* training package.
-To reproduce the results in the manuscript, this package and the experimental scripts are provided in this repository.
-However, the usage of this package will not be introduced.
-We only guarantee that the experimental scripts can work, other functions of the training package is not our point and will not be guaranteed.
-
-Note that the PyG package uses torch.scatter function, which is not reproducable (See xxxx) So that the results of GCN, GIN, and SGC maybe slightly different with our reported results in the manuscript.
