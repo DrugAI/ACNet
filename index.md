@@ -6,7 +6,6 @@
 <sup>1</sup>School of computer science, Fudan University <br>
 <sup>2</sup>Tencent AI Lab <br>
 <br>
-xxx
 </center>
 
 
@@ -53,7 +52,7 @@ By default, we use all of the negative samples for all tasks to generate imbalan
 Under the default configuration, ACNet contains MMPs against 190 targets, i.e., 190 tasks.
 And the numbers of samples in each task range from 36 to 26,376.
 As the number of tasks is large and the data volume of each task varies greatly, for the convenience of model evaluation and comparison, we divide the original 190 tasks into several groups according to the task size.
-By default, tasks with more than 20,000 samples are organized as the Large subsets, tasks with 1,000 to 20,000 samples forms the Medium subsets, and tasks with 100 to 1,000 samples are curated as the Small subsets, finally tasks with less than 100 samples constitute the Few subsets.
+Information of the subsets are shown in the following table.
 The thresholds for dividing tasks into subsets can also be customized by the configuration file.
 
 Subsets | #tasks | threshold | #samples
@@ -62,36 +61,44 @@ Large | 3 | > 20000 | 72,233
 Medium | 64 | [1000,20000] | 275,927
 Small | 110 | [100,1000] | 53,084
 Few | 13 | < 100 | 835
---- | --- | --- | ---
 Mix | 1 | - | 278,367
 
 
 #### Domain Generalization via Target Splitting
 
-In the previous subsection, samples against different targets are organized into different predictive tasks.
-Models can be trained on these tasks separately to learn the knowledge about the chemical modifications leading to large potency difference against a certain target.
-However, there may be common knowledge unveiling what chemical modifications are more probable to cause a large difference in binding potency.
-Thus, an AC prediction model is expected to learn such common knowledge from 
-samples against different targets to better understand the latent principles behind the  ACs phenomenon and the structural similarities between molecules from a potency-based perspective.
-
-In addition, in the field of AI-aided drug discovery, the *low-data* phenomenon is ubiquitous.
-Research-valuable targets are typically newly discovered and lack of labeled data, so that it is obviously difficult to train deep models to accurately make predictions only by the data of these low-data tasks.
-Consequently, a model may be expected to be trained on other tasks with adequate data to learn common knowledge about AC relationships to benefit the tasks with low-data feature.
-
-Motivated by the above-mentioned observations, we propose an extra Mix subset where all of the samples against different targets are organized into a single task to construct a \textit{mixed} dataset.
+We further provide a **Domain Generalization** dataset, which brings OOD feature to the ACNet benchmark.
+Specifically, we propose an extra Mix subset where all of the samples against different targets are organized into a single task to construct a *mixed* dataset.
 To avoid ambiguity, MMPs with conflicting labels against different targets are discarded.
-The number of samples in the Mix subset is 278,367, as shown in Tab.~\ref{tab:arrangement}.
-To force deep models to learn common knowledge from the Mix subset, a \textbf{target splitting} method is proposed, referring to the scaffold splitting method in the molecular property prediction tasks.
+The number of samples in the Mix subset is 278,367.
+To force deep models to learn common knowledge from the Mix subset, a **target splitting** method is proposed, referring to the scaffold splitting method in the molecular property prediction tasks.
 Specifically, when splitting the Mix subset into train/valid/test sets, samples that against the same target must be split into the same set.
 
-The Mix subset consists of samples against different targets, of which the data distribution are discrepant. 
-And the target splitting method makes the data for training and evaluating be sampled from different data distributions.
-In this case, the prediction task of the Mix subset is a \textbf{domain generalization} problem, which consequently brings Out-Of-Distribution (OOD) feature to ACNet.
 
-Domain generalization, i.e. out-of-distribution generalization, focuses on the problem that learning a model from one or several different but related domains (data distributions) to generalize on unseen testing domains, which is ubiquitous in real-world scenarios~\cite{wang2022generalizing}.
-As traditional deep learning models are trained based on the independent identically distributed (i.i.d.) hypothesis, i.e., data for training and testing are sampled independently from identical distribution~\cite{zhang2021deep}, tasks with OOD feature is of great challenge for deep learning models and will lead to performance degradation in \textit{distribution shifting} situations~\cite{2022arXiv220109637J}.
-So, 
-the OOD feature of the Mix subset will dramatically increase the difficulty for deep models.
+#### Baseline Framework
+To evaluate the benchmark, we develop a simple baseline framework for the AC prediction task.
+The structure of the baseline framework is shown in the following figure.
+
+
+<img width="1224" alt="image" src="https://user-images.githubusercontent.com/49937476/174088205-6bc7bba3-50b2-4082-b793-4084364e4572.png">
+
+
+A molecular property prediction model is used as an encoder to extract the representations of the two compounds in each MMP.
+Then, the representations of the two molecules are concatenated and an MLP is leveraged as a head for AC prediction.
+15 molecular property prediction models are involved.
+The experiments that these baaseline models are participating is shown in the following table.
+
+<img width="1119" alt="image" src="https://user-images.githubusercontent.com/49937476/174089191-df00f431-ce5d-4960-88f3-58c6b5402b36.png">
+
+
+#### Experiments
+Performances of the molecular property prediction models under the baseline framework on the ACNet benchmark are shown in the following tables.
+
+<img width="861" alt="image" src="https://user-images.githubusercontent.com/49937476/174088970-3bde990f-41fd-4ca5-a318-5c5a772d9a0c.png">
+
+<img width="1232" alt="image" src="https://user-images.githubusercontent.com/49937476/174089006-8de260b8-4e17-45b6-a798-0d916c4059ee.png">
+
+<img width="773" alt="image" src="https://user-images.githubusercontent.com/49937476/174089024-710c3de0-5722-493b-acf7-50410a71475a.png">
+
 
 
 ### Paper
