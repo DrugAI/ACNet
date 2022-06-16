@@ -48,11 +48,10 @@ Examples of the data in ACNet are shown in Fig.~\ref{fig:dataset}.
 
 ### Paper
 
-- XXX
-
+- Under review by NeurIPS 2022 Track Datasets and Benchmarks
 
 ### Code & Data
 
-- Code: <xxx>
+- Code: https://github.com/DrugAI/ACNet
 
 - Data: https://drive.google.com/drive/folders/1JogBAg9AI0pUxY44w9_g8RHboLf7V5q7?usp=sharing
