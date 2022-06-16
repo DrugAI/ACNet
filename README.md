@@ -7,7 +7,7 @@ The code repository of paper *ACNet: A Benchmark for Activity Cliff Prediction*
 Introduction of this project: https://drugai.github.io/ACNet/
 
 
-## requirement
+## requirements
 - pytorch >= 1.11
 - numpy >= 1.21.2
 - pandas >= 1.2.3
