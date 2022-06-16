@@ -8,14 +8,17 @@ Introduction of this project: https://drugai.github.io/ACNet/
 
 
 ## requirement
-- pytorch = 1.11
-- numpy = 1.21.2
-- pandas = 1.2.3
-- rdkit = 2020.09.5
-- ogb = 1.3.3
-- pyg = 2.0.4
-- scikit-learn = 1.0.2
+- pytorch >= 1.11
+- numpy >= 1.21.2
+- pandas >= 1.2.3
+- rdkit >= 2020.09.5
+- ogb >= 1.3.3
+- pyg >= 2.0.4
+- scikit-learn >= 1.0.2
 
+The environment used in our experiment is backuped and uploaded. 
+To recover the environmen:
+`conda create -f  ACNetEnviron.yml`
 
 ## Usage
 ### Download data files
