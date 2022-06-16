@@ -16,11 +16,6 @@ Introduction of this project: https://drugai.github.io/ACNet/
 - pyg >= 2.0.4
 - scikit-learn >= 1.0.2
 
-The environment used in our experiment is backuped and uploaded. 
-To recover the environment:
-
-`conda create -f ./ACNetEnviron.yml`
-
 ## Usage 
 ### Clone the repository
 Run the following command to clone the repository to your device.
@@ -29,6 +24,13 @@ Run the following command to clone the repository to your device.
 git clone https://github.com/DrugAI/ACNet.git
 cd ACNet/ACNet
 ```
+
+**Note**: The root path `./` indicates `ACNet/` in the following part.
+
+### Create conda environment
+Run the following command to create the environment.
+
+`conda create -f ./ACNetEnviron.yml`
 
 ### Download data files
 Download data files from [here](https://drive.google.com/drive/folders/1JogBAg9AI0pUxY44w9_g8RHboLf7V5q7?usp=sharing)
@@ -49,7 +51,7 @@ mv mmp_ac_s_neg_distinct.csv ./ACComponents/ACDataset/data_files/raw_data/
 Run the following command to generate ACNet datasets with **Default Configuration**
 
 ```
-python ./ACComponents/ACDataset/GenerateACDatasets.py
+python ACNeet/ACComponents/ACDataset/GenerateACDatasets.py
 ```
 
 The genearated dataset files are in `./ACComponents/ACDataset/data_files/generated_datasets/`
