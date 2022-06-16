@@ -93,6 +93,20 @@ mkdir ./TestExp/Large/FPMLP
 python ./FPMLPLarge.py
 ```
 
+To run the GRU on Small subset:
+
+```
+mkdir ./TestExp/Small/GRU
+python ./GRUSmall.py
+```
+
+- Run the following command before experiments of Graphormer model
+
+```
+cd ./Models/Graphormer
+python setup.py build_ext --inplace
+```
+
 - Molecular representations extracted by PTMs
 
 Representations extracted by 7 PTMs for the Few subset can be downloaded [here](https://drive.google.com/drive/folders/1JogBAg9AI0pUxY44w9_g8RHboLf7V5q7?usp=sharing)
