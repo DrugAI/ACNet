@@ -54,6 +54,7 @@ And the numbers of samples in each task range from 36 to 26,376.
 As the number of tasks is large and the data volume of each task varies greatly, for the convenience of model evaluation and comparison, we divide the original 190 tasks into several groups according to the task size.
 Information of the subsets are shown in the following table.
 The thresholds for dividing tasks into subsets can also be customized by the configuration file.
+For convenience, we refer to the Large, Medium, Small subsets collectively as *ordinary subsets* in the following.
 
 Subsets | #tasks | threshold | #samples
 --- | --- | --- | ---
@@ -62,6 +63,11 @@ Medium | 64 | [1000,20000] | 275,927
 Small | 110 | [100,1000] | 53,084
 Few | 13 | < 100 | 835
 Mix | 1 | - | 278,367
+
+The statistical information of the benchmark is shown in the following figure.
+It is obvious that the ACNet benchmark shows imbalanced and low-data features.
+
+<img width="1037" alt="image" src="https://user-images.githubusercontent.com/49937476/174093663-728956c2-8b4f-4a41-8edb-6e118f4cfe9a.png">
 
 
 #### Domain Generalization via Target Splitting
@@ -93,12 +99,32 @@ The experiments that these baaseline models are participating is shown in the fo
 #### Experiments
 Performances of the molecular property prediction models under the baseline framework on the ACNet benchmark are shown in the following tables.
 
-<img width="821" alt="image" src="https://user-images.githubusercontent.com/49937476/174088970-3bde990f-41fd-4ca5-a318-5c5a772d9a0c.png">
 
-<img width="3232" alt="image" src="https://user-images.githubusercontent.com/49937476/174089006-8de260b8-4e17-45b6-a798-0d916c4059ee.png">
+##### Results on the Ordinary subsets
+
+<img width="863" alt="image" src="https://user-images.githubusercontent.com/49937476/174092263-96af48db-946d-420b-b6ba-1973db1aadb8.png">
+
+The ECFP+MLP model achieves an eye-catchiing performance, which outperforms all of the other complex deep models.
+The reason behind performance of ECFP+MLP lies in that ECFP has a natural advantage in extracting representations of similar molecules in MMPs.
+
+##### Results on the Few subset
+Due to the limited data of the Few subsets, it is impossible to train deep models from scratch.
+Following the pretrain-finetune paradigm in few-shot learning, self-supervised pre-trained models (PTMs) are exploited here.
+
+<img width="1232" alt="image" src="https://user-images.githubusercontent.com/49937476/174089006-8de260b8-4e17-45b6-a798-0d916c4059ee.png">
+
+Results further verify the superiority of ECFP as molecular representations in MMP-Cliff prediction.
+On the contrary, although the SOTA PTMs have been trained by large amount of unlabeled data, their performance is even worse than the ECFP except the S.T. model.
+It reveals the difficulty of the Few subset.
+
+##### Results on the Mix subset
 
 <img width="753" alt="image" src="https://user-images.githubusercontent.com/49937476/174089024-710c3de0-5722-493b-acf7-50410a71475a.png">
 
+When using the target splitting method, the ECFP+MLP fails at this time.
+And although the GCN model achieves the best performance on this domain generalization task, the 0.579 AUC indicates that we cannot assume that this model has learnt the common latent mechanism behind the ACs phenomenon.
+Moreover, even the SOTA model Graphormer cannot exhibit good generalization ability when coping with this domain generalization task.
+These findings show that the Mix subset of ACNet is of great challenge to deep learning models.
 
 
 ### Paper
