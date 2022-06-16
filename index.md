@@ -23,7 +23,7 @@ Our work is the first contribution of large-scale benchmark for the AC predictio
 
 #### Data Collection
 The data of ACNet are collected from publicly available database ChEMBL (version 28).
-Over 17 million of activities, each of which records the binding affinity of a molecule against a target, are screened by the rules shown in Fig.~\ref{fig:ACNet}.
+Over 17 million of activities, each of which records the binding affinity of a molecule against a target, are screened by the rules shown in Fig.1.
 Referring to the rules in previous work, compounds trialed against single human targets (organism = Homo sapiens) in direct interaction binding assays (assay_type = B, relationship_type = D) at highest assay confidence (confidence_score = 9) are reserved to construct the benchmark.
 Assay-independent equilibrium constants ($pK_i$ values) are used as the potency measurement.
 Salt compounds are discarded.
@@ -44,6 +44,8 @@ And if the potency difference is lower than 10-fold, then the MMP is denoted as 
 This criterion involve a distinct margin between the potency differences of positive samples and those of negative samples, so that the influence of the observational error induced by the source assays can be restricted.
 Based on the above-mentioned data collection method and screening rules, we have found a total of 21,352 MMPs exhibiting AC relationships, and 423,282 negative non-AC MMPs.
 Examples of the data in ACNet are shown in Fig.~\ref{fig:dataset}.
+
+![1](construction.pdf)
 
 
 ### Paper
