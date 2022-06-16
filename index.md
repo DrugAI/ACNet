@@ -93,11 +93,11 @@ The experiments that these baaseline models are participating is shown in the fo
 #### Experiments
 Performances of the molecular property prediction models under the baseline framework on the ACNet benchmark are shown in the following tables.
 
-<img width="861" alt="image" src="https://user-images.githubusercontent.com/49937476/174088970-3bde990f-41fd-4ca5-a318-5c5a772d9a0c.png">
+<img width="821" alt="image" src="https://user-images.githubusercontent.com/49937476/174088970-3bde990f-41fd-4ca5-a318-5c5a772d9a0c.png">
 
-<img width="1232" alt="image" src="https://user-images.githubusercontent.com/49937476/174089006-8de260b8-4e17-45b6-a798-0d916c4059ee.png">
+<img width="3232" alt="image" src="https://user-images.githubusercontent.com/49937476/174089006-8de260b8-4e17-45b6-a798-0d916c4059ee.png">
 
-<img width="773" alt="image" src="https://user-images.githubusercontent.com/49937476/174089024-710c3de0-5722-493b-acf7-50410a71475a.png">
+<img width="753" alt="image" src="https://user-images.githubusercontent.com/49937476/174089024-710c3de0-5722-493b-acf7-50410a71475a.png">
 
 
 
