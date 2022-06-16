@@ -127,7 +127,8 @@ Remember that the `torch.scatter_` function is non-deterministic (See [here](htt
 The baseline experiments of ACNet are conducted by a *self-made* training framework.
 It is not as well-constructed as other training frameworks, e.g. *torchdrug*.
 It is just served as an example to show how our benchmark works and to show the reproducibility of our results reported in the manuscript.
-We can only guarantee that the experimental scripts can work to reproduce the results, but the stability of the training framework is not guaranteed and the illustration of this training framework is not our point.
+We can only guarantee that the experimental scripts can work to reproduce the results, but the stability of the training framework is not guaranteed when using other functions.
+And the illustration of this training framework is not our point.
 
 
 
