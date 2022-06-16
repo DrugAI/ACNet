@@ -93,6 +93,17 @@ mkdir ./TestExp/Large/FPMLP
 python ./FPMLPLarge.py
 ```
 
+- Molecular representations extracted by PTMs
+
+Representations extracted by 7 PTMs for the Few subset can be downloaded [here](https://drive.google.com/drive/folders/1JogBAg9AI0pUxY44w9_g8RHboLf7V5q7?usp=sharing)
+
+Run the following command to put them into the directory.
+
+```
+mv MMP_AC_Few_representation ./ACComponent/ACDatasets/data_files/
+```
+
+
 **Note**:
 The GNNs (GCN, GIN, SGC) in the baseline experiments are implemented by PyG package, which uses `torch.scatter_` function.
 Remember that the `torch.scatter_` function is not reproducible (See [here](https://pytorch.org/docs/stable/generated/torch.Tensor.scatter_.html#torch.Tensor.scatter_) ), so the results of the GNNs may be slightly different with our reported results in the manuscript.
@@ -113,4 +124,7 @@ We can only guarantee that the experimental scripts can work to reproduce the re
 ### Data structure
 The data sturcture in the ACNet benchmark is as following:
 {'SMILES1':}
+
+### Further updating.
+
 
