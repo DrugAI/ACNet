@@ -17,7 +17,7 @@ Introduction of this project: https://drugai.github.io/ACNet/
 - scikit-learn >= 1.0.2
 
 The environment used in our experiment is backuped and uploaded. 
-To recover the environmen:
+To recover the environment:
 
 `conda create -f  ACNetEnviron.yml`
 
@@ -28,6 +28,7 @@ Download data files from URL:  https://drive.google.com/drive/folders/1JogBAg9AI
 Run the following command to put the data files into the directories
 
 ```
+mkdir ./ACComponents/ACDataset/data_files
 mkdir ./ACComponents/ACDataset/data_files/raw_data
 mkdir ./ACComponents/ACDataset/data_files/generated_datasets
 mv all_smiles_target.csv ./ACComponents/ACDataset/data_files/raw_data/
@@ -43,7 +44,9 @@ Run the following command to generate ACNet datasets with *Default Configuration
 python ./ACComponents/ACDataset/GenerateACDatasets.py
 ```
 
-The configuration can be customized in *./ACComponents/ACDataset/DataUtils.py*
+The genearated dataset files are in `./ACComponents/ACDataset/data_files/generated_datasets/`
+
+The configuration can be customized in `./ACComponents/ACDataset/DataUtils.py`
 
 
 ```
@@ -62,6 +65,9 @@ class Config(object):
         self.small_thres = 100
 ```
 
+### Reproducing
+
+To reproduce the baseline experiments of ACNet reported 
 
 
 ## Illustration
