@@ -19,7 +19,7 @@ Introduction of this project: https://drugai.github.io/ACNet/
 The environment used in our experiment is backuped and uploaded. 
 To recover the environment:
 
-`conda create -f  ACNetEnviron.yml`
+`conda create -f ./ACNetEnviron.yml`
 
 ## Usage 
 ### Download data files
