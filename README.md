@@ -120,11 +120,11 @@ mv MMP_AC_Few_representation ./ACComponent/ACDatasets/data_files/
 
 **Note**:
 The GNNs (GCN, GIN, SGC) in the baseline experiments are implemented by PyG package, which uses `torch.scatter_` function.
-Remember that the `torch.scatter_` function is not reproducible (See [here](https://pytorch.org/docs/stable/generated/torch.Tensor.scatter_.html#torch.Tensor.scatter_) ), so the results of the GNNs may be slightly different with our reported results in the manuscript.
+Remember that the `torch.scatter_` function is non-deterministic (See [here](https://pytorch.org/docs/stable/generated/torch.Tensor.scatter_.html#torch.Tensor.scatter_) ), so the results of the GNNs may be slightly different with our reported results in the manuscript.
 
 
 **Note**:
-The baseline experiments of ACNet are conducted by *self-made* training framework.
+The baseline experiments of ACNet are conducted by a *self-made* training framework.
 It is not as well-constructed as other training frameworks, e.g. *torchdrug*.
 It is just served as an example to show how our benchmark works and to show the reproducibility of our results reported in the manuscript.
 We can only guarantee that the experimental scripts can work to reproduce the results, but the stability of the training framework is not guaranteed and the illustration of this training framework is not our point.
@@ -135,10 +135,44 @@ We can only guarantee that the experimental scripts can work to reproduce the re
 ## Illustration
 ### Data files
 
+- `all_smiles_target.csv`
+Contains 142,307 activities screened from ChEMBL.
+
+- `mmp_ac_s_distinct.csv`
+Contains 21,352 MMP-Cliffs.
+
+- `mmp_ac_s_neg_distinct.csv`
+Contains 423,282 non-AC MMPs.
+
+- `target_dictionary.xlsx`
+A dictionary that match target ids to the target names. Contains 1006 targets.
+
+- `MMP_AC.json`
+All of the MMP-Cliffs and non-AC MMPs. Contains samples against 190 targets.
+
+- `MMP_AC_Discarded.json`
+Discarded samples when organizing 21,352 positive samples and 423,282 negative samples.
+
+- `MMP_AC_Large.json`, `MMP_AC_Medium.json`, `MMP_AC_Small.json`, `MMP_AC_Few.json`, `MMP_AC_Mixed_Screened.json`
+Five subsets of the ACNet benchmark generated based on the configuration file.
+
+
 ### Data structure
-The data sturcture in the ACNet benchmark is as following:
-{'SMILES1':}
+Each json file corresponds to a subset of ACNet, structured as a dictionary.
+Keys are target ids, and values are datasets of the targets.
+The datasets of targets are lists of samples.
+And each sample is a dictionary with keys `SMILES1, SMILES2, Value`.
 
-### Further updating.
+Using Large subset as an example:
 
+```
+>>> dataset.keys()
+dict_keys(['72','130','10102']
+>>> taskset = dataset['72']
+>>> len(taskset)
+26376
+>>> data = taskset[0]
+>>> data
+{'SMILES1': 'OC1(c2ccc(Cl)cc2)CCN(Cc2c[nH]c3ccccc23)CC1', 'SMILES2': 'OCC1(c2ccc(Cl)cc2)CCN(Cc2c[nH]c3ccccc23)CC1', 'Value': '1'}
+```
 
